@@ -1,0 +1,10 @@
+.dayOfWeather {
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.dayOfWeather__groupedHours {
+  display: flex;
+  justify-content: space-between;
+}
