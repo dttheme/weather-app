@@ -5,21 +5,25 @@ import Chart from "../Chart/Chart";
 import "./DayOfWeather.scss";
 
 const DayOfWeather = ({ dayOfTheWeek, weatherArray }) => {
+  const tempArray = [];
   return (
     <div className={`dayOfWeather ${dayOfTheWeek}`}>
       <h2>{dayOfTheWeek}</h2>
       <div>
-        <Chart dayOfTheWeek={dayOfTheWeek} />
+        {tempArray && (
+          <Chart dayOfTheWeek={dayOfTheWeek} tempArray={tempArray} />
+        )}
       </div>
       <div className="dayOfWeather__groupedHours">
         {weatherArray.map(item => {
-          console.log(item);
+          //   console.log(item);
           const time = moment(item.dt_txt).format("h a");
+          tempArray.push(item.main.temp);
           // console.log(time);
           return (
             <HourOfDay
               key={item.dt}
-              temp={item.main.temp}
+              temp={Math.floor(item.main.temp)}
               icon={item.weather[0].icon}
               humidity={item.main.humidity}
               time={time}
