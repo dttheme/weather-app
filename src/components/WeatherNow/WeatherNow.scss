@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+.now {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 5vw;
+  padding: 2rem;
+}
+.now__temp {
+  font-size: 5rem;
+  font-family: $font-secondary;
+}

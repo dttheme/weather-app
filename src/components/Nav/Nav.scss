@@ -1,0 +1,26 @@
+.nav {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.nav__link {
+  padding: 10px 15px;
+  border: 1px solid #cccccc;
+  margin: 1px 0;
+}
+.nav__link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+  .nav__link {
+    width: 33%;
+    padding: 10px 0;
+  }
+  .nav__today {
+    width: 100%;
+  }
+}

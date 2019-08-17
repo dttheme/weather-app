@@ -5,13 +5,18 @@ import Chart from "../Chart/Chart";
 import "./DayOfWeather.scss";
 
 const DayOfWeather = ({ dayOfTheWeek, weatherArray }) => {
-  const tempArray = [];
+  const tempArray = [],
+    timeArray = [];
   return (
     <div className={`dayOfWeather ${dayOfTheWeek}`}>
       <h2>{dayOfTheWeek}</h2>
       <div>
         {tempArray && (
-          <Chart dayOfTheWeek={dayOfTheWeek} tempArray={tempArray} />
+          <Chart
+            dayOfTheWeek={dayOfTheWeek}
+            tempArray={tempArray}
+            timeArray={timeArray}
+          />
         )}
       </div>
       <div className="dayOfWeather__groupedHours">
@@ -19,7 +24,8 @@ const DayOfWeather = ({ dayOfTheWeek, weatherArray }) => {
           //   console.log(item);
           const time = moment(item.dt_txt).format("h a");
           tempArray.push(item.main.temp);
-          // console.log(time);
+          timeArray.push(time);
+          // console.log(timeArray);
           return (
             <HourOfDay
               key={item.dt}

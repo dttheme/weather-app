@@ -3,8 +3,9 @@ import React, { createContext, useState } from "react";
 export const AppStateContext = createContext();
 const AppStateProvider = props => {
   const [appState, setAppState] = useState({
-    cityName: "ok",
-    groupedData: "ok"
+    cityName: "",
+    groupedData: undefined,
+    todaysForecast: undefined
   });
 
   const { children } = props;
