@@ -1,7 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const Chart = ({ dayOfTheWeek, tempArray, timeArray }) => {
+const Chart = ({ tempArray, timeArray }) => {
   const data = {
     labels: timeArray,
     datasets: [
@@ -27,11 +27,6 @@ const Chart = ({ dayOfTheWeek, tempArray, timeArray }) => {
       }
     ]
   };
-  return (
-    <div>
-      <div>HELLO!</div>
-      <Line data={data} />
-    </div>
-  );
+  return <Line data={data} />;
 };
 export default Chart;

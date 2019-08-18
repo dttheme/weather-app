@@ -11,21 +11,15 @@ const DayOfWeather = ({ dayOfTheWeek, weatherArray }) => {
     <div className={`dayOfWeather ${dayOfTheWeek}`}>
       <h2>{dayOfTheWeek}</h2>
       <div>
-        {tempArray && (
-          <Chart
-            dayOfTheWeek={dayOfTheWeek}
-            tempArray={tempArray}
-            timeArray={timeArray}
-          />
-        )}
+        {tempArray && <Chart tempArray={tempArray} timeArray={timeArray} />}
       </div>
       <div className="dayOfWeather__groupedHours">
         {weatherArray.map(item => {
-          //   console.log(item);
+          // format time in hours
           const time = moment(item.dt_txt).format("h a");
+          // push time and temp into arrays, which are then passed to the line chart
           tempArray.push(item.main.temp);
           timeArray.push(time);
-          // console.log(timeArray);
           return (
             <HourOfDay
               key={item.dt}

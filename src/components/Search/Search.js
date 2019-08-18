@@ -27,7 +27,7 @@ const Search = () => {
         setAppState({
           cityName: data[0].city.name,
           groupedData: groupByDayOfWeek(data[0].list),
-          todaysForecast: data[1]
+          todaysWeather: data[1]
         });
       })
       .catch(err => console.log(err));

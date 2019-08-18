@@ -7,17 +7,21 @@ const Nav = () => {
   const [appState] = useContext(AppStateContext);
   return (
     <ul className="nav">
-      {appState.todaysForecast && (
-        <li className="nav__today nav__link">
-          <Link to="/">Today</Link>
-        </li>
+      {appState.todaysWeather && (
+        <Link to="/" className="nav__today nav__link">
+          <li>Today</li>
+        </Link>
       )}
       {appState.groupedData &&
         Object.keys(appState.groupedData).map(dayOfTheWeek => {
           return (
-            <li className="nav__link" key={dayOfTheWeek}>
-              <Link to={`/${dayOfTheWeek.toLowerCase()}`}>{dayOfTheWeek}</Link>
-            </li>
+            <Link
+              key={dayOfTheWeek}
+              className="nav__link"
+              to={`/${dayOfTheWeek.toLowerCase()}`}
+            >
+              <li>{dayOfTheWeek}</li>
+            </Link>
           );
         })}
     </ul>

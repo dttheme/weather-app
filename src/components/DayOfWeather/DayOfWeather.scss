@@ -8,3 +8,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+  .dayOfWeather__groupedHours {
+    flex-direction: column;
+  }
+}

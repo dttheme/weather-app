@@ -1,15 +1,12 @@
 @import "../../styles/variables.scss";
-.header {
-  text-align: center;
-}
 .header__link {
   font-family: $font-secondary;
-  font-size: 5vw;
+  font-size: 4vw;
   margin: 10px;
   text-decoration: none;
 }
 @media (max-width: 900px) {
   .header__link {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 }
