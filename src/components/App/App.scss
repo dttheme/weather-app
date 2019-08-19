@@ -5,13 +5,16 @@
   font-family: $font-primary;
   color: $color-primary;
   a {
-    margin: 10px 0;
     text-decoration: none;
     color: $color-primary;
+  }
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 5px $color-tertiary;
   }
 }
 @media (max-width: 600px) {
   .app {
-    margin: 0 5px;
+    margin: 5px;
   }
 }

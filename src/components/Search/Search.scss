@@ -3,10 +3,10 @@
 .search {
   input,
   button {
-    background: none;
-    padding: 5px;
-    margin: 0;
+    padding: 10px;
     font-family: $font-primary;
+    color: $color-primary;
+    transition: background-color 0.5s ease;
   }
   form {
     display: flex;
@@ -22,17 +22,30 @@
   width: 70%;
   font-size: 1.3rem;
   text-align: center;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #cccccc;
 }
 .search__button {
   width: 100%;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  margin-top: 5px;
+  background-color: rgba($color-secondary, 0.1);
+}
+.search__button:hover,
+.search__input:hover {
+  border: 1px solid $color-tertiary;
+  background-color: transparent;
+  cursor: pointer;
 }
 .search__button-zip {
   width: 30%;
+  border-radius: 0 5px 5px 0;
+  margin: 0;
+  border-left: 1px solid transparent;
 }
 .search__icon {
   font-size: 1.3rem;
   margin-right: 5px;
-  margin-bottom: -4px;
+  margin-bottom: -5px;
 }
-// .search_button {
-// }

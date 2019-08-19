@@ -26,8 +26,10 @@ const Search = () => {
       .then(data => {
         setAppState({
           cityName: data[0].city.name,
+          cityLatLong: data[0].city.coord,
           groupedData: groupByDayOfWeek(data[0].list),
-          todaysWeather: data[1]
+          todaysWeather: data[1],
+          favorites: JSON.parse(window.localStorage.getItem("myFavorites"))
         });
       })
       .catch(err => console.log(err));

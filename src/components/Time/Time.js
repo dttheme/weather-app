@@ -6,7 +6,6 @@ const Time = () => {
   useEffect(() => {
     setTime(moment().format("LLLL"));
   }, []);
-  console.log(time);
   return <div>{time}</div>;
 };
 export default Time;

@@ -2,18 +2,18 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const AppStateContext = createContext();
 const AppStateProvider = props => {
-  const initialFavs =
-    [] || JSON.parse(window.localStorage.getItem("myFavorites"));
   const [appState, setAppState] = useState({
     cityName: "",
+    cityLatLong: [],
     groupedData: undefined,
     todaysWeather: undefined,
-    favorites: initialFavs
+    favorites: JSON.parse(window.localStorage.getItem("myFavorites"))
   });
 
-  // useEffect(() => {
-  //   localStorage.setItem("myFavorites", JSON.stringify(appState.favorites));
-  // }, [appState.favorites]);
+  useEffect(() => {
+    console.log(appState.favorites);
+    localStorage.setItem("myFavorites", JSON.stringify(appState.favorites));
+  }, [appState]);
 
   const { children } = props;
 

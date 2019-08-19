@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppStateContext } from "../../providers/app.provider";
 import Time from "../Time/Time";
 import "./WeatherNow.scss";
+import { WiHumidity } from "react-icons/wi";
 
 const WeatherNow = () => {
   const [appState] = useContext(AppStateContext);
@@ -18,10 +19,11 @@ const WeatherNow = () => {
           appState.todaysWeather.weather[0].icon
         }.png`}
       />
-      {appState.todaysWeather.weather[0].description}
-
-      {/* {appState.todaysWeather.main.humidity} */}
-      {/* // temp={appState.todaysWeather.main.temp} */}
+      <div>{appState.todaysWeather.weather[0].description}</div>
+      <div>
+        <WiHumidity />
+        {appState.todaysWeather.main.humidity}%
+      </div>
     </div>
   ) : null;
 };

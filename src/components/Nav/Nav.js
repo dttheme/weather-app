@@ -9,7 +9,7 @@ const Nav = () => {
     <ul className="nav">
       {appState.todaysWeather && (
         <Link to="/" className="nav__today nav__link">
-          <li>Today</li>
+          <li>Now</li>
         </Link>
       )}
       {appState.groupedData &&

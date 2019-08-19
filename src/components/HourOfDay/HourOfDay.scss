@@ -1,10 +1,23 @@
+@import "../../styles/variables.scss";
 .hourOfDay {
   width: 12.5%;
   text-align: center;
-  ul {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  margin: 1px;
+  list-style: none;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: rgba($color-secondary, 0.3);
+  li {
+    margin: 10px auto;
   }
+}
+.hourOfDay__desc {
+  height: 50px;
+}
+.hourOfDay__icon {
+  font-size: 2rem;
+  margin-bottom: -10px;
 }
 
 @media (max-width: 600px) {
@@ -14,5 +27,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  .hourOfDay__desc {
+    height: 100%;
   }
 }

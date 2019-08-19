@@ -9,20 +9,24 @@ import { MdStar } from "react-icons/md";
 
 const Header = () => {
   const [appState, setAppState] = useContext(AppStateContext);
-  let currentFavs = appState.favorites;
+
+  let currentFavs = appState.favorites || [];
+
   const handleFavorite = () => {
-    currentFavs.push(appState.cityName);
-    setAppState(prevState => {
-      return {
-        ...prevState,
-        favorites: currentFavs
-      };
-    });
+    const itemToFav = [appState.cityLatLong, appState.cityName];
+    currentFavs.push(itemToFav);
+    console.log(currentFavs);
+    setAppState(prevState => ({
+      ...prevState,
+      favorites: currentFavs
+    }));
+    console.log(appState);
   };
 
-  useEffect(() => {
-    localStorage.setItem("myFavorites", JSON.stringify(appState.favorites));
-  }, [appState.favorites]);
+  // const mockFavorites = [
+  //   { lat: 33.749, lon: -84.388 },
+  //   { lat: 43.6318, lon: -70.2709 }
+  // ];
 
   return (
     <div className="header">

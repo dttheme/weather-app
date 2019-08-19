@@ -4,12 +4,17 @@
   flex-direction: column;
   align-items: center;
   font-size: 2vw;
-  padding: 10px;
-}
-.now__temp {
-  font-size: 5rem;
+  padding: 20px;
   font-family: $font-secondary;
   border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: rgba($color-secondary, 0.2);
+}
+.now__temp {
+  background-color: white;
+  font-size: 5rem;
+  border: 1px solid $color-tertiary;
+  box-shadow: 0 0 5px $color-tertiary;
   border-radius: 50%;
   padding: 40px;
   margin: 10px;
