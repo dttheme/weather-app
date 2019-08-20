@@ -44,7 +44,7 @@ const Search = () => {
       );
     });
   };
-  const handleSearch = e => {
+  const handleZipSearch = e => {
     e.preventDefault();
     fetchWeatherAPI(`zip=${searchInput}`);
     setSearchInput("");
@@ -73,7 +73,7 @@ const Search = () => {
             className="search__input"
           />
           <button
-            onClick={handleSearch}
+            onClick={handleZipSearch}
             className="search__button search__button-zip"
           >
             <MdSearch className="search__icon" />

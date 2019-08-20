@@ -22,8 +22,7 @@ npm start
 
 - Page transitions
 - Additional data in charts
-- Full favorites functionality
--
+- Ability to remove favorites
 
 ## License
 

@@ -9,11 +9,13 @@ const Nav = () => {
   const [appState] = useContext(AppStateContext);
   return (
     <ul className="nav">
+      {/* Link to weather now */}
       {appState.todaysWeather && (
         <Link to="/" className="nav__today nav__link">
           <li>Now</li>
         </Link>
       )}
+      {/* Links for each day in the forecast */}
       {appState.groupedData &&
         Object.keys(appState.groupedData).map(dayOfTheWeek => {
           return (

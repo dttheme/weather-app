@@ -11,3 +11,13 @@ export const groupByDayOfWeek = array => {
     return accumulator;
   }, {});
 };
+
+// Hash to check value of array inside of array
+// Returns boolean
+Array.prototype.containsArray = function(val) {
+  var hash = {};
+  for (var i = 0; i < this.length; i++) {
+    hash[this[i]] = i;
+  }
+  return hash.hasOwnProperty(val);
+};

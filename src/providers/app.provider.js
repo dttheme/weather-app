@@ -10,6 +10,7 @@ const AppStateProvider = props => {
     favorites: JSON.parse(window.localStorage.getItem("myFavorites"))
   });
 
+  // If state changes, set localStorage myFavorites to appState.favorites
   useEffect(() => {
     localStorage.setItem("myFavorites", JSON.stringify(appState.favorites));
   }, [appState]);

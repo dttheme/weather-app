@@ -9,7 +9,9 @@ const WeatherWrapper = () => {
   const [appState] = useContext(AppStateContext);
   return (
     <>
+      {/* Route for weather now */}
       <Route exact path="/" component={WeatherNow} />
+      {/* Routes for each day in the forcast */}
       {appState.groupedData &&
         Object.entries(appState.groupedData).map(aDayOfWeatherData => {
           return (

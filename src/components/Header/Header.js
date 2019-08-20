@@ -14,16 +14,6 @@ const Header = () => {
   let currentFavs = appState.favorites || [];
   const itemToFav = [appState.cityLatLong, appState.cityName];
 
-  // Hash to check value of array inside of array
-  // Returns boolean
-  Array.prototype.containsArray = function(val) {
-    var hash = {};
-    for (var i = 0; i < this.length; i++) {
-      hash[this[i]] = i;
-    }
-    return hash.hasOwnProperty(val);
-  };
-
   useEffect(() => {
     // Check if item is already in favorites
     if (currentFavs.length && currentFavs.containsArray(itemToFav)) {
@@ -41,7 +31,6 @@ const Header = () => {
       currentFavs.push(itemToFav);
       console.log("Adding to favorites");
     }
-    console.log(currentFavs);
     setAppState(prevState => ({
       ...prevState,
       favorites: currentFavs
