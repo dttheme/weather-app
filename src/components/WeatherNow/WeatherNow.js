@@ -17,7 +17,7 @@ const WeatherNow = () => {
       </div>
       <img
         alt={appState.todaysWeather.weather[0].description}
-        src={`http://openweathermap.org/img/wn/${
+        src={`https://openweathermap.org/img/wn/${
           appState.todaysWeather.weather[0].icon
         }.png`}
       />

@@ -9,7 +9,7 @@ const HourOfDay = ({ time, temp, humidity, desc, icon }) => {
     <ul className="hourOfDay">
       <li>{time}</li>
       <li>
-        <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt={desc} />
+        <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt={desc} />
       </li>
       <li className="hourOfDay__desc">{desc}</li>
       <li>
