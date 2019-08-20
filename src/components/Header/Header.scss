@@ -2,12 +2,25 @@
 .header__link {
   font-family: $font-secondary;
   font-size: 4vw;
-  margin: 10px;
   text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-tertiary;
+  }
 }
-.header__link:hover {
+.header__star {
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
+.favoritetrue {
   color: $color-tertiary;
 }
+.favoritefalse {
+  color: $color-secondary;
+}
+
 @media (max-width: 900px) {
   .header__link {
     font-size: 8vw;

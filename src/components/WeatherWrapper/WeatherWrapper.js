@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Route } from "react-router-dom";
-import DayOfWeather from "../DayOfWeather/DayOfWeather";
-import WeatherNow from "../WeatherNow/WeatherNow";
+
 import { AppStateContext } from "../../providers/app.provider";
+import DayOfWeather from "../DayOfWeather/DayOfWeather";
+import { Route } from "react-router-dom";
+import WeatherNow from "../WeatherNow/WeatherNow";
 
 const WeatherWrapper = () => {
   const [appState] = useContext(AppStateContext);

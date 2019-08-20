@@ -1,7 +1,9 @@
+import "./WeatherNow.scss";
+
 import React, { useContext } from "react";
+
 import { AppStateContext } from "../../providers/app.provider";
 import Time from "../Time/Time";
-import "./WeatherNow.scss";
 import { WiHumidity } from "react-icons/wi";
 
 const WeatherNow = () => {

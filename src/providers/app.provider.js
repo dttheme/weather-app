@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const AppStateContext = createContext();
 const AppStateProvider = props => {
@@ -11,7 +11,6 @@ const AppStateProvider = props => {
   });
 
   useEffect(() => {
-    console.log(appState.favorites);
     localStorage.setItem("myFavorites", JSON.stringify(appState.favorites));
   }, [appState]);
 

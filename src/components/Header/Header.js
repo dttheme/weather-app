@@ -1,32 +1,52 @@
-import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { AppStateContext } from "../../providers/app.provider";
-import Search from "../Search/Search";
-import Nav from "../Nav/Nav";
-import Favorites from "../Favorites/Favorites";
 import "./Header.scss";
+
+import React, { useContext, useEffect, useState } from "react";
+
+import { AppStateContext } from "../../providers/app.provider";
+import { Link } from "react-router-dom";
 import { MdStar } from "react-icons/md";
+import Nav from "../Nav/Nav";
+import Search from "../Search/Search";
 
 const Header = () => {
   const [appState, setAppState] = useContext(AppStateContext);
-
+  const [starActive, setStarActive] = useState(false);
   let currentFavs = appState.favorites || [];
+  const itemToFav = [appState.cityLatLong, appState.cityName];
 
-  const handleFavorite = () => {
-    const itemToFav = [appState.cityLatLong, appState.cityName];
-    currentFavs.push(itemToFav);
+  // Hash to check value of array inside of array
+  // Returns boolean
+  Array.prototype.containsArray = function(val) {
+    var hash = {};
+    for (var i = 0; i < this.length; i++) {
+      hash[this[i]] = i;
+    }
+    return hash.hasOwnProperty(val);
+  };
+
+  useEffect(() => {
+    // Check if item is already in favorites
+    if (currentFavs.length && currentFavs.containsArray(itemToFav)) {
+      setStarActive(true);
+    }
+  }, [appState, itemToFav, currentFavs]);
+
+  const handleFavoriteStar = () => {
+    if (currentFavs.length && currentFavs.containsArray(itemToFav)) {
+      // TODO: Remove current item from favorites array if it already exists
+      // let newArray = currentFavs.map(k => k.filter(item => item !== itemToFav));
+      // console.log(newArray);
+      console.log("Already exists in favorites");
+    } else {
+      currentFavs.push(itemToFav);
+      console.log("Adding to favorites");
+    }
     console.log(currentFavs);
     setAppState(prevState => ({
       ...prevState,
       favorites: currentFavs
     }));
-    console.log(appState);
   };
-
-  // const mockFavorites = [
-  //   { lat: 33.749, lon: -84.388 },
-  //   { lat: 43.6318, lon: -70.2709 }
-  // ];
 
   return (
     <div className="header">
@@ -36,12 +56,14 @@ const Header = () => {
           {appState.cityName ? ` in ${appState.cityName}` : null}
         </Link>
         {appState.cityName && (
-          <button onClick={handleFavorite}>
+          <button
+            onClick={handleFavoriteStar}
+            className={`header__star favorite${starActive}`}
+          >
             <MdStar />
           </button>
         )}
       </h1>
-      <Favorites favorites={appState.favorites} setFavorites={setAppState} />
       <Search />
       <Nav />
     </div>

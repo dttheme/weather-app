@@ -13,11 +13,13 @@
   border-radius: 5px;
   background-color: rgba($color-secondary, 0.1);
   transition: background-color 0.5s ease;
+
+  &:hover {
+    border: 1px solid $color-tertiary;
+    background-color: transparent;
+  }
 }
-.nav__link:hover {
-  border: 1px solid $color-tertiary;
-  background-color: transparent;
-}
+
 @media (max-width: 600px) {
   .nav {
     flex-wrap: wrap;

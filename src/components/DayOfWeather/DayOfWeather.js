@@ -1,8 +1,9 @@
+import "./DayOfWeather.scss";
+
+import Chart from "../Chart/Chart";
+import HourOfDay from "../HourOfDay/HourOfDay";
 import React from "react";
 import moment from "moment";
-import HourOfDay from "../HourOfDay/HourOfDay";
-import Chart from "../Chart/Chart";
-import "./DayOfWeather.scss";
 
 const DayOfWeather = ({ dayOfTheWeek, weatherArray }) => {
   const tempArray = [],

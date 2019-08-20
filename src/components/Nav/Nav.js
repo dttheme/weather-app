@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AppStateContext } from "../../providers/app.provider";
 import "./Nav.scss";
+
+import React, { useContext } from "react";
+
+import { AppStateContext } from "../../providers/app.provider";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [appState] = useContext(AppStateContext);

@@ -1,6 +1,8 @@
-import React from "react";
 import "./HourOfDay.scss";
+
 import { WiHumidity, WiThermometer } from "react-icons/wi";
+
+import React from "react";
 
 const HourOfDay = ({ time, temp, humidity, desc, icon }) => {
   return (

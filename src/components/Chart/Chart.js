@@ -1,5 +1,5 @@
-import React from "react";
 import { Line } from "react-chartjs-2";
+import React from "react";
 
 const Chart = ({ tempArray, timeArray }) => {
   const data = {

@@ -1,12 +1,15 @@
-import React, { useContext, useState } from "react";
-import { groupByDayOfWeek } from "../../helpers";
-import { AppStateContext } from "../../providers/app.provider";
-import { MdMyLocation, MdSearch } from "react-icons/md";
 import "./Search.scss";
 
+import { MdMyLocation, MdSearch } from "react-icons/md";
+import React, { useContext, useState } from "react";
+
+import { AppStateContext } from "../../providers/app.provider";
+import Favorites from "../Favorites/Favorites";
+import { groupByDayOfWeek } from "../../helpers";
+
 const Search = () => {
-  const [searchInput, setSearchInput] = useState("");
   const [appState, setAppState] = useContext(AppStateContext);
+  const [searchInput, setSearchInput] = useState("");
 
   const fetchWeatherAPI = async queryString => {
     await Promise.all([
@@ -34,9 +37,8 @@ const Search = () => {
       })
       .catch(err => console.log(err));
   };
-
   const handleGeolocation = async () => {
-    await navigator.geolocation.getCurrentPosition(function(position) {
+    await navigator.geolocation.getCurrentPosition(position => {
       fetchWeatherAPI(
         `lat=${position.coords.latitude}&lon=${position.coords.longitude}`
       );
@@ -53,6 +55,12 @@ const Search = () => {
 
   return (
     <div className="search">
+      {appState.favorites && (
+        <Favorites
+          fetchWeatherAPI={fetchWeatherAPI}
+          favorites={appState.favorites}
+        />
+      )}
       <form>
         <label htmlFor="zipSearch">Search your zip code...</label>
         <div className="search__bar">
