@@ -15,13 +15,13 @@ const Search = () => {
     await Promise.all([
       // fetch 5 day forecast
       fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?${queryString}&APPID=${
+        `https://api.openweathermap.org/data/2.5/forecast?${queryString}&APPID=${
           process.env.REACT_APP_OPEN_WEATHER_API_KEY
         }&units=imperial`
       ).then(response => response.json()),
       // fetch today's weather
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?${queryString}&APPID=${
+        `https://api.openweathermap.org/data/2.5/weather?${queryString}&APPID=${
           process.env.REACT_APP_OPEN_WEATHER_API_KEY
         }&units=imperial`
       ).then(response => response.json())
